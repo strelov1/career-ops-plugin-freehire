@@ -15,6 +15,9 @@ const API = 'https://freehire.me/api/v1/jobs/search';
 const PAGE_SIZE = 100; // the API's maximum; larger values are clamped
 const DEFAULT_MAX = 100;
 const HARD_MAX = 1000;
+// freehire's robots.txt asks API clients to name themselves, so a rate-limit
+// change can be announced to the client before it meets a 429.
+const USER_AGENT = 'career-ops-plugin-freehire/0.1.1 (+https://github.com/strelov1/career-ops-plugin-freehire)';
 
 /**
  * Build the search URL. `filters` maps API query params to a value or a list
@@ -115,7 +118,7 @@ export async function fetchJobs(spec, ctx) {
     const limit = Math.min(PAGE_SIZE, max - offset);
     const body = /** @type {any} */ (
       await ctx.fetchJson(buildUrl(spec.query || '', spec.filters || {}, offset, limit), {
-        headers: { Accept: 'application/json' },
+        headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
       })
     );
     const ignored = body?.meta?.ignored_params;
