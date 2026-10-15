@@ -1,0 +1,13 @@
+{
+  "id": "freehire",
+  "name": "freehire",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "description": "Search open job postings on freehire.me by query and filters; every result links to the employer's own posting.",
+  "hooks": ["provider", "search"],
+  "requiredEnv": [],
+  "allowedHosts": ["freehire.me"],
+  "skill": "skill.md",
+  "humanInTheLoop": true,
+  "homepage": "https://github.com/strelov1/career-ops-plugin-freehire"
+}
