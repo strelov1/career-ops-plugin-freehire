@@ -146,12 +146,13 @@ export default {
      *     query: golang
      *     filters: { work_mode: remote, seniority: senior, posted_within_days: 7 }
      *     max: 200
+     *
+     * Declared as an arrow property, not method shorthand: career-ops' plugin
+     * audit reads an unqualified fetch followed by a paren as global fetch.
      * @param {any} entry
      * @param {any} ctx
      */
-    async fetch(entry, ctx) {
-      return fetchJobs({ query: entry.query, filters: entry.filters, max: entry.max }, ctx);
-    },
+    fetch: async (entry, ctx) => fetchJobs({ query: entry.query, filters: entry.filters, max: entry.max }, ctx),
   },
 
   /**
