@@ -12,7 +12,7 @@ page (the employer's ATS or the board it came from), not to freehire.
 ## Install
 
 ```bash
-node plugins.mjs add strelov1/career-ops-plugin-freehire --sha <40-hex-commit>
+node plugins.mjs add strelov1/career-ops-plugin-freehire --sha 61df25db3be84041aa4be2219def0d4dfef623ee
 node plugins.mjs enable freehire            # shows the capability card
 node plugins.mjs enable freehire --confirm  # grants it
 ```
